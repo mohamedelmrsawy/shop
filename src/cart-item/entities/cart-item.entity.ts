@@ -1,7 +1,14 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @ObjectType()
+@Entity()
 export class CartItem {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @PrimaryGeneratedColumn()
+  @Field(() => Int)
+  id!: number;
+
+  @Column()
+  @Field(() => Int)
+  quantity!: number;
 }

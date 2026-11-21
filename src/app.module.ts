@@ -19,7 +19,24 @@ import { InventoryModule } from './inventory/inventory.module';
 import { RefreshTokenModule } from './refresh-token/refresh-token.module';
 
 @Module({
-  imports: [typeOrmConfiger, graphQlConfiger, UserModule, AddressModule, CategoryModule, ProductModule, ProductImageModule, CartModule, CartItemModule, OrderModule, OrderItemModule, CouponModule, ReviewModule, NotificationModule, InventoryModule, RefreshTokenModule],
+  imports: [
+    typeOrmConfiger,
+    graphQlConfiger,
+    UserModule,
+    AddressModule,
+    CategoryModule,
+    ProductModule,
+    ProductImageModule,
+    CartModule,
+    CartItemModule,
+    OrderModule,
+    OrderItemModule,
+    CouponModule,
+    ReviewModule,
+    NotificationModule,
+    InventoryModule,
+    RefreshTokenModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

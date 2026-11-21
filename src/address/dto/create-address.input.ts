@@ -1,7 +1,17 @@
 import { InputType, Int, Field } from '@nestjs/graphql';
+import { IsPhoneNumber, IsString } from 'class-validator';
 
 @InputType()
 export class CreateAddressInput {
-  @Field(() => Int, { description: 'Example field (placeholder)' })
-  exampleField: number;
+  @Field()
+  @IsString()
+  city!: string;
+
+  @Field()
+  @IsString()
+  street!: string;
+
+  @Field(() => Int)
+  @IsPhoneNumber()
+  phone!: number;
 }
