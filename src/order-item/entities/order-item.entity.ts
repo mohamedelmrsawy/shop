@@ -1,5 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { Order } from '../../order/entities/order.entity';
 
 @ObjectType()
 @Entity()
@@ -15,4 +16,8 @@ export class OrderItem {
   @Column()
   @Field(() => Int)
   unitPrice!: number;
+
+  @ManyToOne(() => Order, (o) => o.orderItemes)
+  @Field(() => Order)
+  order!: Order;
 }

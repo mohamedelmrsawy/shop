@@ -1,5 +1,6 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Product } from '../../product/entities/product.entity';
 
 @ObjectType()
 @Entity()
@@ -11,4 +12,8 @@ export class ProductImage {
   @Field(() => String)
   @Column()
   imageUrl!: string;
+
+  @ManyToOne(() => Product, (p) => p.prodectImages)
+  @Field(() => Product)
+  product!: Product;
 }
